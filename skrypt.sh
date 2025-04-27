@@ -22,7 +22,18 @@ case "$1" in
         echo "  --logs [liczba] -l    Utwórz pliki logx.txt (domyślnie 100)"
         echo "  --e [liczba] -e    Utwórz pliki error.txt (domyślnie 100)"
         ;;
-    *)
-        echo "Nieprawidłowa opcja."
-        ;;
+   --error|-e)
+       liczba=${2:-100}
+       mkdir -p errorx
+       for ((i=1; i<=liczba; i++)); do
+           filename="errorx/error${i}.txt"
+           echo "Nazwa pliku: error${i}.txt" > "$filename"
+           echo "Data utworzenia: $(date)" >> "$filename"
+           echo "Utworzony przez: skrypt.sh" >> "$filename"
+       done
+       echo "Utworzono $liczba plików error."
+       ;;
+   *)
+       echo "Nieprawidłowa opcja."
+       ;;
 esac
