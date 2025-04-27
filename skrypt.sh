@@ -5,8 +5,9 @@ case "$1" in
             echo "Dzisiejsza data: $(date)"
         ;;
     --logs)
+        liczba=${2:-100} #Domyslne 100 jesli nie zostnaie podana liczba
         mkdir -p logs
-        for ((i=1; i<=100; i++)); do 
+        for ((i=1; i<=liczba; i++)); do 
             filename="logs/log${i}.txt"
             echo "Nazwa pliku: log${i}.txt" > "$filename"
             echo "Data utworzenia: $(date)" >> "$filename"
@@ -18,6 +19,7 @@ case "$1" in
         echo "  --help          Wyświetl pomoc"
         echo "  --date          Wyświetl dzisiejszą datę"
         echo "  --logs [liczba]    Utwórz pliki logx.txt (domyślnie 100)"
+        echo "Stworzono $liczba plikow"
         ;;
     *)
         echo "Nieprawidłowa opcja."
