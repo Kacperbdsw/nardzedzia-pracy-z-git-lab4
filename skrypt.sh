@@ -1,10 +1,10 @@
 #!/bin/bash
 
 case "$1" in
-    --date)
+    --date|-d)
             echo "Dzisiejsza data: $(date)"
         ;;
-    --logs)
+    --logs|-l)
         liczba=${2:-100} #Domyslne 100 jesli nie zostnaie podana liczba
         mkdir -p logs
         for ((i=1; i<=liczba; i++)); do 
@@ -14,7 +14,7 @@ case "$1" in
         done
         echo "Stworzono 100 plikow"
         ;;
-    --help)
+    --help|-h)
         echo "Dostępne opcje:"
         echo "  --help -h         Wyświetl pomoc"
         echo "  --init         Sklonuj repo"
