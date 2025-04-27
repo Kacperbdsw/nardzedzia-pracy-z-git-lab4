@@ -22,6 +22,12 @@ case "$1" in
         echo "  --logs [liczba] -l    Utwórz pliki logx.txt (domyślnie 100)"
         echo "  --e [liczba] -e    Utwórz pliki error.txt (domyślnie 100)"
         ;;
+    --init)
+        git clone https://github.com/Kacperbdsw/nardzedzia-pracy-z-git-lab4.git cloned_repo
+        cd cloned_repo || exit
+        export PATH=$PATH:$(pwd)
+        echo "Repo sklonowane i PATH ustawiony"
+        ;;
    --error|-e)
        liczba=${2:-100}
        mkdir -p errorx
